@@ -1,23 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2519" systemVersion="12A206j" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1856"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="5">
             <objects>
-                <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="2" customClass="OSViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Number of On sets:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-9k-8gW">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="191" id="AAg-WA-UTV"/>
+                                    <constraint firstAttribute="height" constant="21" id="AZm-3i-QrV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Rv-gr-dnd">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="fYF-XV-jYQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Scy-Zy-34m">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="5Pk-8v-j1L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickOnOffButton:" destination="2" eventType="touchUpInside" id="XDu-sY-vHB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gWX-9k-8gW" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="34" id="8G9-Or-8RQ"/>
+                            <constraint firstItem="gWX-9k-8gW" firstAttribute="top" secondItem="3" secondAttribute="top" constant="76" id="M8c-He-bN8"/>
+                            <constraint firstItem="Scy-Zy-34m" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="OQT-pD-lXO"/>
+                            <constraint firstItem="4Rv-gr-dnd" firstAttribute="baseline" secondItem="gWX-9k-8gW" secondAttribute="baseline" type="default" id="a09-GQ-dgg"/>
+                            <constraint firstAttribute="bottom" secondItem="Scy-Zy-34m" secondAttribute="bottom" constant="59" id="eGM-wM-QAn"/>
+                            <constraint firstItem="gWX-9k-8gW" firstAttribute="top" secondItem="4Rv-gr-dnd" secondAttribute="top" type="default" id="ljf-FR-AmN"/>
+                            <constraint firstItem="4Rv-gr-dnd" firstAttribute="leading" secondItem="gWX-9k-8gW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="ndc-De-lzT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="auidoOnOffButton" destination="Scy-Zy-34m" id="uum-dP-Ubk"/>
+                        <outlet property="labelOnsetCount" destination="4Rv-gr-dnd" id="Fe9-h3-zOf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
     </scenes>
+    <classes>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="OSViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/OSViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clickOnOffButton:"/>
+                <relationship kind="outlet" name="auidoOnOffButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="labelOnsetCount" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
